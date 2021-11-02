@@ -15,7 +15,7 @@ func main() {
 		os.Exit(1)
 	}
 	fileList := make([]string, 0)
-	err := filepath.Walk(os.Args[1], func(path string, f os.FileInfo, err error) error {
+	err := filepath.Walk(os.Args[1], func(path string, file os.FileInfo, err error) error {
 		fileList = append(fileList, path)
 		return err
 	})
