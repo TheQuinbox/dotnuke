@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 func main() {
@@ -20,6 +21,8 @@ func main() {
 		panic(e)
 	}
 	for _, file := range fileList {
-		fmt.Println(file)
+		if strings.HasPrefix(filepath.Base(file), "._") {
+			fmt.Printf("Found a file to delete: %s\n", filepath.Base(file))
+		}
 	}
 }
