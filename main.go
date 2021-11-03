@@ -34,6 +34,15 @@ func main() {
 			ignored += 1
 		}
 	}
-	fmt.Printf("Done! Out of %d files, %d were deleted, and %d were kept.", total, deleted, ignored)
+	fmt.Printf("Done! Out of %d %s, %d %s deleted, and %d %s kept.", total, plural(total, "file", "files"), deleted, plural(deleted, "was", "were"), ignored, plural(ignored, "was", "were"))
 	os.Exit(0)
+}
+
+// Simple hacky little function for pluralization.
+func plural(number int, first, second string) string {
+	if number == 1 || number == -1 {
+		return first
+	} else {
+		return second
+	}
 }
